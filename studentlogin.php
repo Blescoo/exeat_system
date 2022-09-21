@@ -3,8 +3,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Student|Login</title>
     <link rel="stylesheet" href="school.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 </head>
 <body>
     
@@ -36,16 +37,15 @@ if(isset($_POST['matricno'])){
     $matricno = mysqli_real_escape_string($con, $matricno);
     $surname = stripslashes($_REQUEST['password']);
     $surname = mysqli_real_escape_string($con, $surname);
-    $query = "SELECT * FROM `user` WHERE matricno='$matricno' AND surname='$surname'";
-    $result = mysqli_query($con,$query) or die(mysqli_error());
+    $query = "SELECT * FROM `student` WHERE matric_no='$matricno' AND surname='$surname'";
+    //$result = mysqli_query($con,$query) or die(mysqli_error());
+    $result = mysqli_query($con, $query) or die (mysqli_error($con)); 
     $rows = mysqli_num_rows($result);
     if($rows==1){
         $_SESSION['matricno'] = $username;
         header("location: index.php");
     }else{
-        echo "<div class='in'>
-    <h3>Username/password is incorrect.</h3>
-    <br/>";
+        echo ( '<script>alert(" Incorrect Matric No or Password ")</script>');
         }
         }else{
 
@@ -56,15 +56,15 @@ if(isset($_POST['matricno'])){
 ?>
 
 
-    <div class="in">
-        <form action="" method="post">
+    <div class="in" align="center">
+        <form action="" method="POST">
 
             <img src="img/crwlogo.png" alt="stew" height="100px">
             <h3>STUDENT  &nbsp; LOGIN</h3>
             <input type="number" name="matricno" placeholder="Matric number"> <br><br>
             <input type="password" name="password" placeholder="password"><br><br>
             <div class="gin">
-            <input type="submit" name="Log  In" value="log in"><br><br>
+            <button type="submit" name="Log  In" class="btn btn-primary" value="log in">Log in </button><br><br>
         </div>
             <label>forget password?</label><br><br>
         </form>
