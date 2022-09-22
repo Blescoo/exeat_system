@@ -421,7 +421,7 @@ $xxx = $_SESSION['surname'];
 <form class="row g-3 mt-5 container-fluid" id="reg" action="" method="POST">
   
 
-  <div class="col-md-4">
+  <div class="col-md-2">
     <label for="inputSurname" class="form-label">Matric No: </label>
     <input type="text" class="form-control" id="matric" name="matric" required >
   </div>
@@ -434,6 +434,12 @@ $xxx = $_SESSION['surname'];
     <label for="inputOtherNames" class="form-label">Room No: </label>
     <input type="text" class="form-control" id=""name="room_no"required>
   </div>
+
+  <div class="col-md-2">
+    <label for="inputOtherNames" class="form-label">Room No: </label>
+    <input type="text" class="form-control" id=""name="room_no"required>
+  </div>
+
 
 
   

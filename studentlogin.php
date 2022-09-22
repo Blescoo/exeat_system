@@ -45,11 +45,13 @@ if(isset($_POST['matricno'])){
     if($rows==1){
         while ($rows = $result->fetch_assoc()) {
             $surnamee = $rows['surname'];
+
+            $dept =  $rows['department'];
             
             }
        
         $_SESSION["surnamee"] = $surnamee;
-        
+        $_SESSION["dept"] = $dept;
 
         
         header("location: Dashboard");

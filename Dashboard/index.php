@@ -417,7 +417,8 @@ session_start();
                      // session_destroy();
 
                       ?></h3>
-                  <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>
+                  <h6 class="font-weight-normal mb-0">Department:  <span class="text-primary"> <?php echo  $_SESSION["dept"]; 
+                   ?>!</span></h6>
                 </div>
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">
