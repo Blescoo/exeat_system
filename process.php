@@ -13,7 +13,7 @@ if(isset($_POST['username'])){
     $rows = mysqli_num_rows($result);
     if($rows==1){
         $_SESSION['username'] = $username;
-        header("location: dashboard.php");
+        header("location: Dasdashboard.php");
     }else{
        echo "username/surname is incorrect.";
     }

@@ -8,16 +8,10 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 </head>
 <body>
-    
-
-  
-
 <div class="menu">
-    
     <ul>
        
-
-        <li> <a href="frontpage.html"> Home</a>  </li>
+        <li> <a href="/exeat_system"> Home</a>  </li>
         
 
 
@@ -30,20 +24,35 @@
 
 
 <?php
+
 require('db.php');
 session_start();
+
 if(isset($_POST['matricno'])){
     $matricno = stripslashes($_REQUEST['matricno']);
+
+   
     $matricno = mysqli_real_escape_string($con, $matricno);
     $surname = stripslashes($_REQUEST['password']);
+    
     $surname = mysqli_real_escape_string($con, $surname);
+    
     $query = "SELECT * FROM `student` WHERE matric_no='$matricno' AND surname='$surname'";
     //$result = mysqli_query($con,$query) or die(mysqli_error());
     $result = mysqli_query($con, $query) or die (mysqli_error($con)); 
     $rows = mysqli_num_rows($result);
+    
     if($rows==1){
-        $_SESSION['matricno'] = $username;
-        header("location: index.php");
+        while ($rows = $result->fetch_assoc()) {
+            $surnamee = $rows['surname'];
+            
+            }
+       
+        $_SESSION["surnamee"] = $surnamee;
+        
+
+        
+        header("location: Dashboard");
     }else{
         echo ( '<script>alert(" Incorrect Matric No or Password ")</script>');
         }
@@ -64,7 +73,7 @@ if(isset($_POST['matricno'])){
             <input type="number" name="matricno" placeholder="Matric number"> <br><br>
             <input type="password" name="password" placeholder="password"><br><br>
             <div class="gin">
-            <button type="submit" name="Log  In" class="btn btn-primary" value="log in">Log in </button><br><br>
+            <button type="submit" class="btn btn-primary" value="log in">Log in </button><br><br>
         </div>
             <label>forget password?</label><br><br>
         </form>
