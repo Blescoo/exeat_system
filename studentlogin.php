@@ -44,21 +44,25 @@ if(isset($_POST['matricno'])){
     
     if($rows==1){
         while ($rows = $result->fetch_assoc()) {
+            $id =  $rows['id'];
             $surnamee = $rows['surname'];
 
             $dept =  $rows['department'];
             $matric =  $rows['matric_no'];
             $othername =  $rows['other_names'];
             $roomno =  $rows['room_no'];
+            $blockno =  $rows['block_no'];
             
             }
        
+        $_SESSION["userid"] = $id;
         $_SESSION["surnamee"] = $surnamee;
         $_SESSION["dept"] = $dept;
         $_SESSION["matric"] = $matric;
         $_SESSION["othername"] = $othername;
         $_SESSION["fullname"] =  $surnamee . ' ' .  $othername;
         $_SESSION["roomno"] = $roomno;
+        $_SESSION["blockno"] = $blockno;
         
         header("location: Dashboard");
 }

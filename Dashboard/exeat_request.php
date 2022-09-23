@@ -33,7 +33,7 @@ session_start();
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="images/logo.svg" class="mr-2" alt="logo"/></a>
+        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="" class="mr-2" alt=""/>Crowford Exeat</a>
         <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -418,7 +418,7 @@ session_start();
 
                 <div class="container">
 
-<form class="row g-3 mt-5 container-fluid" id="reg" action="" method="POST">
+<form class="row g-3 mt-5 container-fluid" id="reg" action="insert.php" method="POST">
   
 
   <div class="col-md-2">
@@ -437,14 +437,10 @@ session_start();
 
   <div class="col-md-2">
     <label for="inputOtherNames" class="form-label">Block No: </label>
-    <input type="text" class="form-control" id=""name="block_no"    disabled required>
+    <input type="text" class="form-control" id=""name="block_no" value=" <?php  echo $_SESSION["blockno"];  ?>  "    disabled required>
   </div>
 
 
-
-  
-
-  
   <div class="col-6">
     <label for="inputAddress2" class="form-label">Destination: </label>
    <textarea class="form-control" id="" rows="3"name="destination"required></textarea>
@@ -452,7 +448,7 @@ session_start();
 
   <div class="col-6">
     <label for="inputAddress2" class="form-label">Destination Address: </label>
-   <textarea class="form-control" id="" rows="3"name="dest_address"required></textarea>
+   <textarea class="form-control" id="" rows="3" name="dest_address" required></textarea>
   </div>
 
   
@@ -536,11 +532,11 @@ session_start();
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021.  Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash. All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021. <a href="https://www.bootstrapdash.com/" target="_blank"> </a>  All rights reserved.</span>
+            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Coded by <i class="ti-heart text-danger ml-1"></i></span>
           </div>
           <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Distributed by <a href="https://www.themewagon.com/" target="_blank">Themewagon</a></span> 
+            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Developed by <a href=" " target="_blank">Chiamaka Mark</a></span> 
           </div>
         </footer> 
         <!-- partial -->
