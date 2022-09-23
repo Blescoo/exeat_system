@@ -47,17 +47,25 @@ if(isset($_POST['matricno'])){
             $surnamee = $rows['surname'];
 
             $dept =  $rows['department'];
+            $matric =  $rows['matric_no'];
+            $othername =  $rows['other_names'];
+            $roomno =  $rows['room_no'];
             
             }
        
         $_SESSION["surnamee"] = $surnamee;
         $_SESSION["dept"] = $dept;
-
+        $_SESSION["matric"] = $matric;
+        $_SESSION["othername"] = $othername;
+        $_SESSION["fullname"] =  $surnamee . ' ' .  $othername;
+        $_SESSION["roomno"] = $roomno;
         
         header("location: Dashboard");
-    }else{
+}
+    else{
         echo ( '<script>alert(" Incorrect Matric No or Password ")</script>');
         }
+        
         }else{
 
         }

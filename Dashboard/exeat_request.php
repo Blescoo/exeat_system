@@ -1,6 +1,6 @@
 <?php
-
-$xxx = $_SESSION['surname'];
+session_start();
+ 
 
 ?>
 <!DOCTYPE html>
@@ -411,8 +411,8 @@ $xxx = $_SESSION['surname'];
             <div class="col-md-12 grid-margin">
               <div class="row">
                 <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                  <h3 class="font-weight-bold">Welcome <?php  echo $xxx;  ?></h3>
-                  <h6 class="font-weight-normal mb-0">All systems are running smoothly! You have <span class="text-primary">3 unread alerts!</span></h6>
+                  <h3 class="font-weight-bold">Welcome: <?php echo $_SESSION["surnamee"];  ?></h3>
+                  <h6 class="font-weight-normal mb-0">Department:  <span class="text-primary"> <?php echo $_SESSION['dept']; ?></span></h6>
                 </div>
 
 
@@ -423,21 +423,21 @@ $xxx = $_SESSION['surname'];
 
   <div class="col-md-2">
     <label for="inputSurname" class="form-label">Matric No: </label>
-    <input type="text" class="form-control" id="matric" name="matric" required >
+    <input type="text" class="form-control" id="matric" name="matric" value=" <?php echo $_SESSION["matric"]; ?>" disabled required >
   </div>
   <div class="col-md-6">
     <label for="inputOtherNames" class="form-label">Full Names: </label>
-    <input type="text" class="form-control" id="other_names"name="other_names"required>
+    <input type="text" class="form-control" id="full_name"name="fullname" value=" <?php  echo $_SESSION["fullname"];  ?>  "   disabled   required>
   </div>
   
   <div class="col-md-2">
     <label for="inputOtherNames" class="form-label">Room No: </label>
-    <input type="text" class="form-control" id=""name="room_no"required>
+    <input type="text" class="form-control" id=""name="room_no" value=" <?php  echo $_SESSION["roomno"];  ?>  " disabled required>
   </div>
 
   <div class="col-md-2">
-    <label for="inputOtherNames" class="form-label">Room No: </label>
-    <input type="text" class="form-control" id=""name="room_no"required>
+    <label for="inputOtherNames" class="form-label">Block No: </label>
+    <input type="text" class="form-control" id=""name="block_no"    disabled required>
   </div>
 
 
