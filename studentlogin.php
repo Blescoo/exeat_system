@@ -84,7 +84,7 @@ if(isset($_POST['matricno'])){
 
             <img src="img/crwlogo.png" alt="stew" height="100px">
             <h3>STUDENT  &nbsp; LOGIN</h3>
-            <input type="number" name="matricno" placeholder="Matric number"> <br><br>
+            <input type="text" name="matricno" placeholder="Matric number"> <br><br>
             <input type="password" name="password" placeholder="password"><br><br>
             <div class="gin">
             <button type="submit" class="btn btn-primary" value="log in">Log in </button><br><br>

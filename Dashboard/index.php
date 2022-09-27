@@ -315,7 +315,7 @@ session_start();
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="exeat_request.php">Request Exeat </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">View Exeat Status</a></li>
+                <li class="nav-item"> <a class="nav-link" href="my_exeat.php">View Exeat Status</a></li>
                 <!-- <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a></li> -->
               </ul>
             </div>

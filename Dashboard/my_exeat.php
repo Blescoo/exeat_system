@@ -1,4 +1,8 @@
 <?php
+
+
+include '../db.php';
+
 session_start();
  
 
@@ -407,6 +411,113 @@ session_start();
       <!-- partial -->
       <div class="main-panel">
         <div class="content-wrapper">
+
+        
+<table class="table table-striped table-hover custom" align="center">
+<thead>
+  <tr>
+    
+    <th scope="col">Exeat ID</th>
+    <th scope="col">Destination</th>
+    <th scope="col">Destination Address</th>
+     <th scope="col">Exeat Date</th>
+     <th scope="col">Depature Date</th>
+     <th scope="col">Arrival Date  </th>
+     <th scope="col"> Reason  </th>
+     <th scope="col"></th>
+     <!-- <th scope="col"></th> -->
+     <th scope="col">Status</th>
+     <th scope="col">Actions</th>
+  </tr>
+</thead>
+<tbody>
+
+
+
+<?php
+
+
+
+  include '../db.php';
+
+  $user_id = $_SESSION["userid"];
+
+  $sql = "SELECT * FROM `exeat`  WHERE student_id =  $user_id " ;
+
+  $result = mysqli_query($con, $sql);
+
+  if($result){
+
+    while ($row = mysqli_fetch_assoc($result)) {
+      // code...
+
+      $exeat_id =  $row['exeat_id'];
+      $_SESSION["exeat_id"] = $exeat_id;
+
+      
+      
+      $destination =  $row['destination'];
+      $dest_address =  $row['destination_address'];
+      $exeat_date =  $row['exeat_date'];
+      $date_of_depature =  $row['date_of_depature'];
+      $arival_date =  $row['arrival_date'];
+      $reason =  $row['reason'];
+      $status =  $row['statuss'];
+
+      if($row["statuss"] == "Approved"){
+        $status = '<td style="background-color:green; color:white; border-radius: 8px;"> '.  $row["statuss"] . '</td>' ;
+     } else if($row["statuss"] == "Pending") {
+       $status = '<td style="background-color:red; color:white; border-radius: 8px;">' . $row["statuss"] . '</td>' ;
+    }
+    $status .= '';
+    // $status .= '';
+
+
+      echo ' <tr>
+ 
+    <td>' .$exeat_id . '</td>
+    <td>' .$destination . '</td>
+    <td>' .$dest_address . '</td>
+    <td>' .$exeat_date .'</td>
+    <td>' .$date_of_depature .'</td>
+    <td>' .$arival_date . '</td>
+    <td>' .$reason .' </td>
+    
+    <td >' .$status .'</td>
+    <td > <button class="btn btn-success"><a href="myexeat_print.php?exeat_id=' . $exeat_id. '" target="_blank" class="text-light" style="text-decoration:none;">Print </a></button> </td>
+    <td> 
+
+    
+</td>
+   
+  </tr>';
+
+
+
+
+
+
+    }
+
+    
+
+
+
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+?>
+
           <div class="row">
             <div class="col-md-12 grid-margin">
               <div class="row">
@@ -416,96 +527,25 @@ session_start();
                 </div>
 
 
-                <div class="container">
-
-<form class="row g-3 mt-5 container-fluid" id="reg" action="insert.php" method="POST">
-  
-
-  <div class="col-md-2">
-    <label for="inputSurname" class="form-label">Matric No: </label>
-    <input type="text" class="form-control" id="matric" name="matric" value=" <?php echo $_SESSION["matric"]; ?>" disabled required >
-  </div>
-  <div class="col-md-6">
-    <label for="inputOtherNames" class="form-label">Full Names: </label>
-    <input type="text" class="form-control" id="full_name"name="fullname" value=" <?php  echo $_SESSION["fullname"];  ?>  "   disabled   required>
-  </div>
-  
-  <div class="col-md-2">
-    <label for="inputOtherNames" class="form-label">Room No: </label>
-    <input type="text" class="form-control" id=""name="room_no" value=" <?php  echo $_SESSION["roomno"];  ?>  " disabled required>
-  </div>
-
-  <div class="col-md-2">
-    <label for="inputOtherNames" class="form-label">Block No: </label>
-    <input type="text" class="form-control" id=""name="block_no" value=" <?php  echo $_SESSION["blockno"];  ?>  "    disabled required>
-  </div>
 
 
-  <div class="col-6">
-    <label for="inputAddress2" class="form-label">Destination: </label>
-   <textarea class="form-control" id="" rows="3"name="destination"required></textarea>
-  </div>
-
-  <div class="col-6">
-    <label for="inputAddress2" class="form-label">Destination Address: </label>
-   <textarea class="form-control" id="" rows="3" name="dest_address" required></textarea>
-  </div>
-
-  
-  <div class="col-md-4">
-    <label for="inputOtherNames" class="form-label">Support Name: </label>
-    <input type="text" class="form-control" id=""name="support_name"required>
-  </div>
-
-  <div class="col-md-4">
-    <label for="inputOtherNames" class="form-label">Support No: </label>
-    <input type="number" class="form-control" id=""name="support_no"required>
-  </div>
-  <div class="col-md-4">
-    <label for="inputOtherNames" class="form-label">Parent/Guardian No: </label>
-    <input type="number" class="form-control" id=""name="parent_no"required>
-  </div>
-
-  <!-- <div class="col-md-6">
-    <label for="inputSurname" class="form-label">Room No: </label>
-    <input type="text" class="form-control" id="matric" name="matric" required >
-  </div> -->
-  <div class="col-md-4">
-    <label for="inputOtherNames" class="form-label">Exeat Date: </label>
-    <input type="date" class="form-control" id=""name="exeat_date"required>
-  </div>
-
-  <div class="col-md-4">
-    <label for="inputOtherNames" class="form-label">Departure Date: </label>
-    <input type="date" class="form-control" id=""name="departure_date"required>
-  </div>
-
-  <div class="col-md-4">
-    <label for="inputOtherNames" class="form-label">Arrival Date: </label>
-    <input type="date" class="form-control" id=""name="arrival_date"required>
-  </div>
-
-  <div class="" align="center">
-  <div class="col-8">
-    <label for="inputAddress2" class="form-label">Reason for Exeat: </label>
-   <textarea class="form-control" align="center" id="" rows="3"name="reason"required></textarea>
-  </div>
-</div>
 
 
-   <div class="col-12 mb-4" align="center">
-    <button type="submit" class=" btn-lg btn btn-success">Request  </button>
+    
 
-  </div>
+    
 
-  
- 
-</form>
+
+
+
+
+
+
+        
 
 
 	
 
-</div>
 
 
                 <div class="col-12 col-xl-4">
@@ -514,7 +554,13 @@ session_start();
                     <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                      <i class="mdi mdi-calendar"></i> Today (10 Jan 2021)
                     </button>
+
+
                     
+
+
+
+
                   </div>
                  </div>
                 </div>
@@ -530,15 +576,7 @@ session_start();
       </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        <footer class="footer">
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021. <a href="https://www.bootstrapdash.com/" target="_blank"> </a>  All rights reserved.</span>
-            <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Coded by <i class="ti-heart text-danger ml-1"></i></span>
-          </div>
-          <div class="d-sm-flex justify-content-center justify-content-sm-between">
-            <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Developed by <a href=" " target="_blank">Chiamaka Mark</a></span> 
-          </div>
-        </footer> 
+       
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
