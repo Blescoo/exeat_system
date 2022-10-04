@@ -1,6 +1,6 @@
 <?php
-session_start();
 
+require('auth.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,7 @@ session_start();
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Exeat</title>
+  <title>Exeat | Crawford University</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -31,7 +31,7 @@ session_start();
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="" class="mr-2" alt=""/>Exeat Crowford </a>
+        <a class="navbar-brand brand-logo mr-5" href="index.html"><img src="" class="mr-2" alt=""/>Exeat Crawford </a>
         <a class="navbar-brand brand-logo-mini" href="index.html"><img src="images/logo-mini.svg" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -108,8 +108,8 @@ session_start();
                 <i class="ti-settings text-primary"></i>
                 Settings
               </a>
-              <a class="dropdown-item">
-                <i class="ti-power-off text-primary"></i>
+              <a class="dropdown-item" href="logout.php">
+                <i class="ti-power-off text-primary"  ></i>
                 Logout
               </a>
             </div>

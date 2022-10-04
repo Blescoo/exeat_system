@@ -1,29 +1,29 @@
+
 <?php
 
-
+require('auth.php');
 include '../db.php';
 
-session_start();
- 
+
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Skydash Admin</title>
+  <title>Crawford  Exeat</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" href="vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
-  <link rel="stylesheet" href="vendors/datatables.net-bs4/dataTables.bootstrap4.css">
+  
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
-  <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
+  
   <!-- End plugin css for this page -->
   <!-- inject:css -->
   <link rel="stylesheet" href="css/vertical-layout-light/style.css">
@@ -114,7 +114,7 @@ session_start();
                 <i class="ti-settings text-primary"></i>
                 Settings
               </a>
-              <a class="dropdown-item">
+              <a class="dropdown-item" href=" logout.php">
                 <i class="ti-power-off text-primary"></i>
                 Logout
               </a>
@@ -413,7 +413,7 @@ session_start();
         <div class="content-wrapper">
 
         
-<table class="table table-striped table-hover custom" align="center">
+<table class="table table-striped table-hover table-responsive custom" align="center">
 <thead>
   <tr>
     
@@ -425,8 +425,13 @@ session_start();
      <th scope="col">Arrival Date  </th>
      <th scope="col"> Reason  </th>
      <th scope="col"></th>
-     <!-- <th scope="col"></th> -->
+     <th scope="col"></th>
      <th scope="col">Status</th>
+     
+     
+    
+     
+     <!-- <th scope="col">Status</th> -->
      <th scope="col">Actions</th>
   </tr>
 </thead>
@@ -436,9 +441,6 @@ session_start();
 
 <?php
 
-
-
-  include '../db.php';
 
   $user_id = $_SESSION["userid"];
 
@@ -462,15 +464,17 @@ session_start();
       $date_of_depature =  $row['date_of_depature'];
       $arival_date =  $row['arrival_date'];
       $reason =  $row['reason'];
-      $status =  $row['statuss'];
+     
+     
 
       if($row["statuss"] == "Approved"){
         $status = '<td style="background-color:green; color:white; border-radius: 8px;"> '.  $row["statuss"] . '</td>' ;
      } else if($row["statuss"] == "Pending") {
        $status = '<td style="background-color:red; color:white; border-radius: 8px;">' . $row["statuss"] . '</td>' ;
     }
-    $status .= '';
-    // $status .= '';
+    
+    
+ 
 
 
       echo ' <tr>
@@ -482,13 +486,19 @@ session_start();
     <td>' .$date_of_depature .'</td>
     <td>' .$arival_date . '</td>
     <td>' .$reason .' </td>
+    <td></td>
+    <td>' .$status .' </td>
     
-    <td >' .$status .'</td>
-    <td > <button class="btn btn-success"><a href="myexeat_print.php?exeat_id=' . $exeat_id. '" target="_blank" class="text-light" style="text-decoration:none;">Print </a></button> </td>
+    
+    
+    <td > <button class="btn btn-success"><a href="myexeat_print.php?exeat_id=' . $exeat_id . '" target="_blank"  class="text-light" style="text-decoration:none;">Print </a></button> </td>
+    
     <td> 
-
+    
     
 </td>
+
+
    
   </tr>';
 
@@ -525,28 +535,6 @@ session_start();
                   <h3 class="font-weight-bold">Welcome: <?php echo $_SESSION["surnamee"];  ?></h3>
                   <h6 class="font-weight-normal mb-0">Department:  <span class="text-primary"> <?php echo $_SESSION['dept']; ?></span></h6>
                 </div>
-
-
-
-
-
-
-    
-
-    
-
-
-
-
-
-
-
-        
-
-
-	
-
-
 
                 <div class="col-12 col-xl-4">
                  <div class="justify-content-end d-flex">

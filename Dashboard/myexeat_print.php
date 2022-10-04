@@ -3,55 +3,81 @@
 session_start();
 include '../db.php';
 
+
+
+
+
+
+
+
 $user_id = $_SESSION["userid"];
 
-$exeatt_id = $_SESSION["exeat_id"];
+//Getting the exeat id from the URL address bar
+$exeat_id = $_GET['exeat_id'];
 
-$sql = "SELECT 	exeat_id,	full_name, destination,	destination_address,	exeat_date,	date_of_depature,	arrival_date,	reason, statuss FROM `exeat`  WHERE exeat_id =  $exeatt_id ";
 
-$result = mysqli_query($con, $sql);
 
-if($result){
+$sql2 = "SELECT 	exeat_id,	full_name, destination,	destination_address,	exeat_date,	date_of_depature,	arrival_date,	reason, statuss FROM `exeat`  WHERE exeat_id =  $exeat_id ";
 
-  while ($row = mysqli_fetch_array($result)) {
+$resultt = mysqli_query($con, $sql2);
+
+if($resultt){
+
+  while ($rowws = mysqli_fetch_assoc($resultt)) {
     // code...
   
-    $exeat_id =  $row['exeat_id'];
+    
 
    
-    $full_name =  $row['full_name'];
+    $full_name =  $rowws['full_name'];
    
-    $status =  $row['statuss'];
+    $status =  $rowws['statuss'];
  
-    $destination =  $row['destination'];
-    $dest_address =  $row['destination_address'];
-    $date_of_depature =  $row['date_of_depature'];
-    $reason =  $row['reason'];
-    $arival_date =  $row['arrival_date'];
+    $destination =  $rowws['destination'];
+
+   
+    $dest_address =  $rowws['destination_address'];
+    $date_of_depature =  $rowws['date_of_depature'];
+    $reason =  $rowws['reason'];
+    $arival_date =  $rowws['arrival_date'];
     
     $department = $_SESSION["dept"];
 
-
-
+    
 
   }
-   
-   
-   
+
+  
 }
+
+
+
 ?>
 
+<?php 
+        
+  require_once("php/qrcode.php");
+  
+  print("");
 
-<!DOCTYPE html>
-<html lang="en">
+$qr = new QRCode();
 
-<head>
-  <title> Exeat Verification System Crawford </title>
+// QR_ERROR_CORRECT_LEVEL_L : 7%
+// QR_ERROR_CORRECT_LEVEL_M : 15%
+// QR_ERROR_CORRECT_LEVEL_Q : 25%
+// QR_ERROR_CORRECT_LEVEL_H : 30%
+$qr->setErrorCorrectLevel(QR_ERROR_CORRECT_LEVEL_H);
 
-</head>
+
+$qr->setTypeNumber(6);
+
+$qr->addData("ID " .':' . '' . $exeat_id . " Name" .':' . ' ' . $full_name   .  " Status" .':' . '' . $status   );
 
 
-<body>
+
+
+?>
+
 
 
 
@@ -145,16 +171,22 @@ div.relative {
 
 
 <body>
-<table align="center"  class="table table-striped" border="2px" style="border-style: double; border: 2px; width:800px;">
+<table align="center"  class="table table-striped " border="2px" style="border-style: double; border: 2px; width:800px;">
   <tbody><tr>
 			<td colspan="2" class="txtbold" align="center"><h1> EXEAT SYSTEM CRAWFORD</h1></td>
 		</tr><tr>
       <td colspan="2" style="background-color:transparent;width:100%; height:100%; width:100%;">
 	  <div style="background-color:transparent;">
       <div  style="float:left; background-color: navy; margin-top: 0px; margin-right:-140px;">
-        <img src="phpqrcode/temp/test6a6dd386bf6dc637a3cacd4e7206a8b3.png" height="120px" width="120px"  />  
+        <!-- <img src="" height="120px" width="120px"  />   -->
+
+        <?php  $qr->make(); 
+          $qr->printHTML();  
+        
+        ?>
+        
       </div>
-      
+
       <div style="background-color: transparent;  height: 120px; font-size: 15px; margin-top: 0px; margin-right:30px;">
         <h3 align="center"><strong> Crawford Exeat verification Slip</strong>  <br />  <strong style="color: black; font-size: 15px;">Exeat Verification </strong><br />
         <a style="color:blue; font-size:15px;" href="#"> chiamakamark.com</a>
@@ -162,8 +194,8 @@ div.relative {
         
       </div>
       
-      <div  style=" background-color: transparent; margin-top: -100px; width:120px; height: 120px;" class="relative">
-        <img src="../img/crwlogo1.jpg" height="115px" width="115px"  />  
+      <div  style=" background-color: transparent; float:right; margin-top: -100px; width:120px; height: 120px;" class="absolute">
+        <img src="../img/crwlogo1.jpg" height="105px" width="105px" class= "margin-top: -100px;"  />  
       </div>
 	  </div>
       </td>
@@ -193,8 +225,13 @@ div.relative {
       
       <tr>
         <th class="contentbold" width="39%">Depature Date.</th>
-        <td class="content" width="61%"> <?php  echo $date_of_depature   ?></td>
-      </tr><tr>
+        <td class="content" width="61%"> <?php  
+        $new_departure_date = date("d-m-Y", strtotime($date_of_depature));
+        
+       echo $new_departure_date   ?></td>
+      </tr>
+      
+      <tr>
         <th class="contentbold">Reason</th>
         <td><span class="content"> <?php  echo $reason   ?></span></td>
       </tr>
@@ -204,11 +241,6 @@ div.relative {
         <td><span class="alert-success" ><?php  echo $status   ?></span></td>
       </tr>
       
-      <!-- <tr>
-        <th class="contentbold">Arrival/Date</th>
-        <td><span class="content"> <?php  echo $arival_date   ?></span></td>
-      </tr> -->
-      
       <tr>
         <th colspan="2"  class="contentbold" style="text-align: center;">ARRIVAL DATE</th>
       </tr>
@@ -217,7 +249,11 @@ div.relative {
         <td colspan="2">
         <table class="table table-striped" cellpadding="3" cellspacing="4" width="100%"><tr bgcolor="#f1f1f1"> 
 				<th class="contentbold" width="40%">Arrival Date.</th>
-                <td class="content" ><?php  echo $arival_date   ?></td>
+                <td class="content" ><?php  
+                
+               $new_arival_date = date("d-m-Y", strtotime($arival_date));
+                
+                echo $new_arival_date   ?></td>
               </tr>      
       <tr>
         <th class="contentbold" >  </th>
