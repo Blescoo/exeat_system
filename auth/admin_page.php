@@ -6,10 +6,16 @@
 
 <?php
 
+session_start();
+if(!$_SESSION["admin"]){
+
+  header("Location:../auth/admin_login.php");
+
+}
 
 include 'db.php';
 
-session_start();
+
  
 
 ?>
@@ -488,11 +494,13 @@ session_start();
     <td>' .$status .' </td>
    
     <td > <button class="btn btn-success"><a href="exeat_approve.php?exeat_id=' . $exeat_details . '" target="_blank"  class="text-light" style="text-decoration:none;">Approve </a></button> </td> 
-    <td > <button class="btn btn-danger "><a href="myexeat_print.php?exeat_id=' . $exeat_details . '" target="_blank"  class="text-light" style="text-decoration:none;">Disapprove </a></button> </td>
+    <td > <button class="btn btn-danger "><a href="exeat_disapprove.php?exeat_id=' . $exeat_details . '" target="_blank"  class="text-light" style="text-decoration:none;">Disapprove </a></button> </td>
     
 
     
 </td>
+
+
    
   </tr>';
 

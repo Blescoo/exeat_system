@@ -4,12 +4,6 @@ session_start();
 include '../db.php';
 
 
-
-
-
-
-
-
 $user_id = $_SESSION["userid"];
 
 //Getting the exeat id from the URL address bar
@@ -69,7 +63,7 @@ $qr = new QRCode();
 $qr->setErrorCorrectLevel(QR_ERROR_CORRECT_LEVEL_H);
 
 
-$qr->setTypeNumber(6);
+$qr->setTypeNumber(7);
 
 $qr->addData("ID " .':' . '' . $exeat_id . " Name" .':' . ' ' . $full_name   .  " Status" .':' . '' . $status   );
 

@@ -472,6 +472,10 @@ include '../db.php';
      } else if($row["statuss"] == "Pending") {
        $status = '<td style="background-color:red; color:white; border-radius: 8px;">' . $row["statuss"] . '</td>' ;
     }
+
+    else if($row["statuss"] == "Disapproved") {
+      $status = '<td style="background-color:red; color:white; border-radius: 8px;">' . $row["statuss"] . '</td>' ;
+   }
     
     
  
