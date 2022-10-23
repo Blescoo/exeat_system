@@ -83,17 +83,17 @@ color:red;
 }
 
 
-.in form{
+/* .in form{
     background-color: whitesmoke;
-    width: 400px;
+    width: 0 auto;
     height: 470px;
-   margin-left: 570px;
+   margin-left: 570px; 
    margin-top: 100px;
    font-size: 20px;
    text-align: center;
    border-radius: 20px;
    box-shadow: 2px 1px 1pc;
-   padding: 20px;
+    padding: 20px;
 }
 .in form input{
     height: 40px;
@@ -109,7 +109,26 @@ color:red;
     background-color:#29AB87 ;
     color: white;
     border: none;
+} */
+
+.jnn{
+
+    background-color: whitesmoke;
+    width: 800px;
+    border-radius: 15px;
+    box-shadow: 2px 2px 1px;
+
+     
+    
 }
+
+.row {
+    height: 440px; 
+    width: 400px;
+
+}
+
+
 .plac input{
     background-color: green;
     color: white;
@@ -128,11 +147,11 @@ color:red;
 .reason{
     margin-left: 50px;
 }
-.reason input{
+/* .reason input{
     height: 150px;
     width: 280px;
     margin-top: 30px;
-}
+} */
 .exdate{
     height: 30px;
     margin-top: 160px;
@@ -141,7 +160,7 @@ color:red;
     float:right;
     margin-top: 163px;
 }
-
+/* 
 .sub input{
     height: 30px;
     width: 70px;
@@ -149,7 +168,7 @@ color:red;
     font-size: 18px;
     border-radius:6px;
 
-}
+} */
 
 
 .container{
@@ -159,3 +178,4 @@ color:red;
 	height: 800px;
 	
 }
+

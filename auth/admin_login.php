@@ -1,16 +1,11 @@
-<?php
-
-
-
-?>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student|Login</title>
-    <link rel="stylesheet" href="school.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+    <link rel="stylesheet" href="../school.css">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.css">
 </head>
 <body>
 <div class="menu">
@@ -52,21 +47,12 @@ if(isset($_POST['username'])){
             $id =  $rows['id'];
             $username = $rows['username'];
             $password =  $rows['passwordd'];
-           
             
             }
 
             $_SESSION["admin"] = $username;
        
-        // $_SESSION["userid"] = $id;
-        // $_SESSION["surnamee"] = $surnamee;
-        // $_SESSION["dept"] = $dept;
-        // $_SESSION["matric"] = $matric;
-        // $_SESSION["othername"] = $othername;
-        // $_SESSION["fullname"] =  $surnamee . ' ' .  $othername;
-        // $_SESSION["roomno"] = $roomno;
-        // $_SESSION["blockno"] = $blockno;
-        
+
         header("location: admin_page.php");
 }
     else{
@@ -82,19 +68,27 @@ if(isset($_POST['username'])){
 ?>
 
 
-    <div class="in" align="center">
+
+<div class="" align="center">
+
+<div class="row jnn mt-5" >
+    
         <form action="" method="POST">
 
-            <img src="img/crwlogo.png" alt="stew" height="100px">
-            <h3>ADMIN  &nbsp; LOGIN</h3>
-            <input type="text" name="username" placeholder="Username"> <br><br>
-            <input type="password" name="password" placeholder="password"><br><br>
-            <div class="gin">
-            <button type="submit" class="btn btn-primary" value="log in">Log in </button><br><br>
+            <img src="../img/crwlogo.png" alt="" height="100px">
+            <h3>ADMIN   LOGIN</h3>
+            
+            <input type="text" name="username" class="form-control mt-4" placeholder="Username"> 
+            <input type="password" name="password" class="form-control mt-4" placeholder="Password"> 
+            <div class="">
+            <button type="submit" class="btn btn-primary mt-5" value="log in">Log in </button><br><br>
         </div>
-            <label>forget password?</label><br><br>
+            <label>Forget password? </label>
+
         </form>
+    
     </div>
-7
+    </div>
+    
 </body>
 </html>

@@ -28,12 +28,14 @@
 require('db.php');
 
 session_start();
-if(isset($_POST['matricno'])){
-    $matricno = stripslashes($_REQUEST['matricno']);
+if(isset($_POST['matric_no'])){
+    $matricno = stripslashes($_REQUEST['matric_no']);
 
    
     $matricno = mysqli_real_escape_string($con, $matricno);
-    $surname = stripslashes($_REQUEST['password']);
+    $surname = stripslashes($_REQUEST['surname']);
+
+    
     
     $surname = mysqli_real_escape_string($con, $surname);
     
@@ -42,6 +44,7 @@ if(isset($_POST['matricno'])){
     $result = mysqli_query($con, $query) or die (mysqli_error($con)); 
     $rows = mysqli_num_rows($result);
     
+  
     if($rows==1){
         while ($rows = $result->fetch_assoc()) {
             $id =  $rows['id'];
@@ -53,7 +56,8 @@ if(isset($_POST['matricno'])){
             $roomno =  $rows['room_no'];
             $blockno =  $rows['block_no'];
             
-            }
+            
+        }
        
         $_SESSION["userid"] = $id;
         $_SESSION["surnamee"] = $surnamee;
@@ -79,18 +83,25 @@ if(isset($_POST['matricno'])){
 ?>
 
 
-    <div class="in" align="center">
+<div class="" align="center">
+
+<div class="row jnn mt-5" >
+    
         <form action="" method="POST">
 
-            <img src="img/crwlogo.png" alt="stew" height="100px">
-            <h3>STUDENT  &nbsp; LOGIN</h3>
-            <input type="text" name="matricno" placeholder="Matric number"> <br><br>
-            <input type="password" name="password" placeholder="password"><br><br>
-            <div class="gin">
-            <button type="submit" class="btn btn-primary" value="log in">Log in </button><br><br>
+            <img src="img/crwlogo.png" alt="" height="100px">
+            <h3>STUDENT   LOGIN</h3>
+            
+            <input type="text" name="matric_no" class="form-control mt-4" placeholder="Matric No"> 
+            <input type="password" name="surname" class="form-control mt-4" placeholder="Password"> 
+            <div class="">
+            <button type="submit" class="btn btn-primary mt-5" value="log in">Log in </button><br><br>
         </div>
-            <label>forget password?</label><br><br>
+            <label>Forget password? </label>
+
         </form>
+    
+    </div>
     </div>
 
 </body>
