@@ -9,7 +9,7 @@ if(isset($_POST['username'])){
     $surname = stripslashes($_REQUEST['surname']);
     $surname = mysqli_real_escape_string($con,$surname);
     $query = "SELECT * FROM `users` WHERE username='$username and $surname'".md5($surname)."'";
-    $result = mysqli_query($con,$query) or die(mysqli_error());
+    $result = mysqli_query($con,$query) or die(mysqli_error($con));
     $rows = mysqli_num_rows($result);
     if($rows==1){
         $_SESSION['username'] = $username;

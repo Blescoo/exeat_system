@@ -11,7 +11,7 @@ require('auth.php');
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Crawford Exeat</title>
+  <title>Crawford Exeat | Request</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="vendors/feather/feather.css">
   <link rel="stylesheet" href="vendors/ti-icons/css/themify-icons.css">
@@ -165,7 +165,7 @@ require('auth.php');
               <form class="form w-100">
                 <div class="form-group d-flex">
                   <input type="text" class="form-control todo-list-input" placeholder="Add To-do">
-                  <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button>
+                  <!-- <button type="submit" class="add btn btn-primary todo-list-add-btn" id="add-task">Add</button> -->
                 </div>
               </form>
             </div>
@@ -498,6 +498,8 @@ require('auth.php');
     <button type="submit" class=" btn-lg btn btn-success">Request  </button>
 
   </div>
+
+  
 
   
  

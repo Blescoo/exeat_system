@@ -1,7 +1,10 @@
+<title>.::Crawford Exeat verification | System</title>
 <?php
 
 session_start();
 include '../db.php';
+
+
 
 
 $user_id = $_SESSION["userid"];
@@ -44,13 +47,7 @@ if($resultt){
   
 }
 
-
-
-?>
-
-<?php 
-        
-  require_once("php/qrcode.php");
+require_once("php/qrcode.php");
   
   print("");
 
@@ -70,13 +67,15 @@ $qr->addData("ID " .':' . '' . $exeat_id . " Name" .':' . ' ' . $full_name   .  
 
 
 
+
 ?>
 
 
 
 
+
 <!DOCTYPE html>
-<html lang="en">
+
 
 <head>
 
@@ -84,19 +83,12 @@ $qr->addData("ID " .':' . '' . $exeat_id . " Name" .':' . ' ' . $full_name   .  
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Exeat System for CRAWFORD">
-    <meta name="author" content="Chiamaka Mark . &lt;chiamaka@gmail.com&gt;">
+    
 	  <meta name="robots" content="noindex, nofollow">
 
-	<!-- Open Graph Meta -->
-	<meta property="og:title" content="Exeat System for CRAWFORD">
-	<meta property="og:site_name" content="Exeat System for CRAWFORD">
-	<meta property="og:description" content="Exeat System for CRAWFORD">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="craford.edu.ng">
-	<meta property="og:image" content="">
-	
+   
     <link rel="shortcut icon" type="image/png" href="images/favicon/favicon2.ico"/>
-   <title> Crawford </title>
+    
 
 
     <!-- Bootstrap Core CSS -->
@@ -132,34 +124,6 @@ $qr->addData("ID " .':' . '' . $exeat_id . " Name" .':' . ' ' . $full_name   .  
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-</head>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
-<script type="text/javascript" src="js/script.js"></script> <!-- timer -->
-<script type="text/javascript" src="js/login.js"></script> <!-- timer -->
-
-
-
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<LINK REL="SHORTCUT ICON" HREF="http://admission.lasued.edu.ng//favicon.ico">  
-<title>.::Crawford Exeat verification | System</title>
-<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-<style type="text/css">
-<!--
-.style2 {font-size: 24px}
--->
-div.relative {
-  position: relative;
-  top: -20px;
-  right: -650px;
-  width: 120px;
-  height: 120px;
-  border: 3px solid blue;
-}
-</style>
 
 </head>
 
